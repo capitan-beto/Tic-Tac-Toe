@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+}
+
+.container{
+    display: grid;
+    grid-template: auto auto auto / auto auto auto;
+}
+
+div{
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+}
