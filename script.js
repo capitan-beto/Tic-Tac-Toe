@@ -35,7 +35,6 @@ const Game = (() => {
             playerOne.score.push(item.id);
         }
         checkWinner();
-        console.log(playerOne.score, playerTwo.score);
     }, {once:true}))
 
     const checkWinner = () => {
