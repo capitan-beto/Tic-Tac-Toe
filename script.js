@@ -4,14 +4,15 @@ const board = document.querySelector(".container")
 const Game = (() => {
 
     let playerOne = {
-        name : "P1",
+        name : prompt("insert name P1"),
         score: []
     }
     let playerTwo = {
-        name : "P2",
+        name : prompt("Insert name P2"),
         score : []
     }
 
+    
     const combinations = [
         ["a1", "a2", "a3"],
         ["b1", "b2", "b3"],
@@ -22,9 +23,9 @@ const Game = (() => {
         ["a1", "b2", "c3"],
         ["a3", "b2", "c1"],
     ];
-
-    let count = 0
-
+    
+    let count = 0;
+    
     cells.forEach(item => item.addEventListener("click", () =>{ 
         count ++;
         if(count % 2 == 0){
@@ -36,6 +37,8 @@ const Game = (() => {
         }
         checkWinner();
     }, {once:true}))
+    
+    let winner = "";
 
     const checkWinner = () => {
         let checker = (firstArray, secondArray) => {
@@ -43,12 +46,23 @@ const Game = (() => {
         };
         for (item of combinations){
             if(checker(playerTwo.score, item)){
-                console.log("2P wins!");
+                winner = playerTwo.name;
+                winScreen(winner);
             } else if(checker(playerOne.score, item)){
-                console.log("1P Wins!");
+                winner = playerOne.name;
+                winScreen(winner);
             }
         }
     }
+    
+    const winScreen = (winner) => {
+        alert("winner is " + winner);
+    }
+
 })();
+
+
+//steps remaining: 
+//crete tie msg display
 
 
