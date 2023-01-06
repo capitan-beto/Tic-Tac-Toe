@@ -51,18 +51,25 @@ const Game = (() => {
             } else if(checker(playerOne.score, item)){
                 winner = playerOne.name;
                 winScreen(winner);
+            } else if(playerOne.score.length + playerTwo.score.length == 9){
+                winner = "tie";
+                winScreen(winner);
+                playerOne.score = 0;
+                playerTwo.score = 0;
             }
         }
     }
     
     const winScreen = (winner) => {
-        alert("winner is " + winner);
+        setTimeout(() => {
+            if(winner == playerOne.name || winner == playerTwo.name){
+                alert("winner is " + winner);
+            }else if(winner == "tie"){
+                alert("oh no! it's a tie");
+            }
+        })
     }
-
 })();
 
-
-//steps remaining: 
-//crete tie msg display
 
 
