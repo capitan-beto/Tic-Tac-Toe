@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
 
+:root{
+    --border: rgba(255, 255, 255, .4);
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -7,23 +11,25 @@ body {
     justify-content: center;
     align-items: center;
 
-    background: #000 url(images/bg.jpg) no-repeat;
+    background: #000 url(images/bg.jpg);
     background-size: 100%;
-    background-position-y: -13vh;
-    background-position-x: 2vw;
 }
 
 .container{
+    background: var(--border);
+
     display: grid;
-    grid-template: repeat(3, 8rem) / repeat(3, 8rem);
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     border: none;
+    height: 60vh;
+    width: 60vh;
 }
 
 div{
     border: 1px solid black;
 
     text-align: center;
-    line-height: 128px;
+    line-height: 188px;
     font-size: 6rem;
     font-family: 'Schoolbell', cursive;
 }
