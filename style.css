@@ -2,6 +2,7 @@
 
 :root{
     --border: rgba(255, 255, 255, .4);
+    --font: 'Schoolbell', cursive;
 }
 
 body {
@@ -30,8 +31,8 @@ div{
 
     text-align: center;
     line-height: 188px;
-    font-size: 6rem;
-    font-family: 'Schoolbell', cursive;
+    font-size: 5rem;
+    font-family: var(--font);
 }
 
 .left {
@@ -50,7 +51,8 @@ div{
     border-bottom: none;
 }
 
-.winning-screen {
+.winning-screen, 
+.menu-screen {
     display: flex;
     flex-direction: column;
     width: 60vh;
@@ -61,12 +63,13 @@ div{
     align-items: center;
 }
 
-.win-msg {
-    margin: 0;
+.win-msg,
+.intro-msg {
+    margin: 1vh;
 
 }
 
-.reset-btn {
+.button {
     flex: 0 0 1;
     width: 40%;
     height: 15%;
@@ -75,10 +78,23 @@ div{
 
     border: none;
     border-radius: 44% 38% / 74% 46%;
-    font-family: 'Schoolbell', cursive;
+    font-family: var(--font);
     font-size: 40%;
 }
 
-.reset-btn:hover {
+.button:hover {
     background: rgba(255, 255, 255, .5);
+}
+
+.players-name {
+    margin: 2%;
+    width: 30vw;
+    height: 5vh;
+
+    font-family: var(--font);
+    font-size: large;
+}
+
+.menu-screen > button {
+    margin-top: 10%;
 }

@@ -2,17 +2,19 @@
 const cells = document.querySelectorAll(".cell");
 const board = document.querySelector(".container");
 
-const Game = (() => {
-    
-    let playerOne = {
-        name : prompt("insert name P1"),
-        score: []
-    }
-    let playerTwo = {
-        name : prompt("Insert name P2"),
-        score : []
-    }
+let playerOne = {
+    name : "",
+    score: []
+}
+let playerTwo = {
+    name : "",
+    score : []
+}
 
+const Game = () => {
+    
+
+    board.setAttribute("style", "display: grid");
     
     const combinations = [
         ["a1", "a2", "a3"],
@@ -74,7 +76,7 @@ const Game = (() => {
             winningScreen.appendChild(winMsg);
 
             const reset = document.createElement("button");
-            reset.classList.add("reset-btn");
+            reset.classList.add("button");
             reset.textContent = "Play Again?";
             winningScreen.appendChild(reset);
 
@@ -89,9 +91,53 @@ const Game = (() => {
             }
         }, 500);
     }
+};
+
+const menu = (() => {
+        board.setAttribute("style", "display: none");
+
+        const menuScreen = document.createElement("div");
+        menuScreen.classList.add("menu-screen");
+        document.body.appendChild(menuScreen);
+
+        const introMsg = document.createElement("p");
+        introMsg.classList.add("intro-msg");
+        introMsg.textContent = "Ready to play?"
+        menuScreen.appendChild(introMsg);
+
+        const pOneName = document.createElement("input");
+        pOneName.setAttribute("type", "text");
+        pOneName.placeholder = "Insert player one name";
+        pOneName.classList.add("players-name");
+        
+        const pTwoName = document.createElement("input");
+        pTwoName.setAttribute("type", "text");
+        pTwoName.placeholder = "Insert player two name";
+        pTwoName.classList.add("players-name");
+
+        const startButton = document.createElement("button");
+        startButton.textContent = "Start";
+        startButton.classList.add("button");
+        startButton.addEventListener("click", () => {
+            startGame();
+        })
+
+        window.addEventListener("keydown", (e) => {
+            if(e.key == "Enter"){
+                startGame();
+            }
+        })
+        
+        menuScreen.append(pOneName, pTwoName, startButton);
+        
+        const startGame = () => {
+            playerOne.name = pOneName.value;
+            playerTwo.name = pTwoName.value;
+            Game();
+            menuScreen.setAttribute("style", "display: none");
+        }
 })();
 
-//make a board display add event listener to it
 
 
 
