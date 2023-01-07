@@ -1,8 +1,9 @@
 
 const cells = document.querySelectorAll(".cell");
-const board = document.querySelector(".container")
-const Game = (() => {
+const board = document.querySelector(".container");
 
+const Game = (() => {
+    
     let playerOne = {
         name : prompt("insert name P1"),
         score: []
@@ -62,14 +63,35 @@ const Game = (() => {
     
     const winScreen = (winner) => {
         setTimeout(() => {
+            board.setAttribute("style", "display: none");
+
+            const winningScreen = document.createElement("div");
+            winningScreen.classList.add("winning-screen");
+            document.body.appendChild(winningScreen);
+
+            const winMsg = document.createElement("p");
+            winMsg.classList.add("win-msg");
+            winningScreen.appendChild(winMsg);
+
+            const reset = document.createElement("button");
+            reset.classList.add("reset-btn");
+            reset.textContent = "Play Again?";
+            winningScreen.appendChild(reset);
+
+            reset.addEventListener("click", () => {
+                window.location.reload();
+            })
+
             if(winner == playerOne.name || winner == playerTwo.name){
-                alert("winner is " + winner);
+               winMsg.textContent =  " The winner is " + winner.toUpperCase();
             }else if(winner == "tie"){
-                alert("oh no! it's a tie");
+               winMsg.textContent =  "oh no! it's a tie";
             }
-        })
+        }, 500);
     }
 })();
+
+//make a board display add event listener to it
 
 
 

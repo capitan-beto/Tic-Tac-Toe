@@ -49,3 +49,36 @@ div{
 .bottom {
     border-bottom: none;
 }
+
+.winning-screen {
+    display: flex;
+    flex-direction: column;
+    width: 60vh;
+    height: 60vh;
+    border: none;
+    background: var(--border);
+    text-align: center;
+    align-items: center;
+}
+
+.win-msg {
+    margin: 0;
+
+}
+
+.reset-btn {
+    flex: 0 0 1;
+    width: 40%;
+    height: 15%;
+    top: 0;
+    background: rgba(255, 255, 255, .2);
+
+    border: none;
+    border-radius: 44% 38% / 74% 46%;
+    font-family: 'Schoolbell', cursive;
+    font-size: 40%;
+}
+
+.reset-btn:hover {
+    background: rgba(255, 255, 255, .5);
+}
