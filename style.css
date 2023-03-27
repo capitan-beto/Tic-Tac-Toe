@@ -27,11 +27,14 @@ body {
     width: 60vh;
 }
 
+.container > {
+    display: grid;
+    place-content: center;
+}
+
 div{
     border: 1px solid black;
-
     text-align: center;
-    line-height: 188px;
     font-size: 5rem;
     font-family: var(--font);
 }
