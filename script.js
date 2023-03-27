@@ -78,8 +78,12 @@ const Game = () => {
 
             const reset = document.createElement("button");
             reset.classList.add("button");
-            reset.textContent = "Play Again?";
+            reset.textContent = "Play Again? (esc)";
             winningScreen.appendChild(reset);
+
+            window.addEventListener("keydown", (e) => {
+                if (e.keyCode == 27 ) window.location.reload();
+            })
 
             reset.addEventListener("click", () => {
                 window.location.reload();
