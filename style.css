@@ -55,8 +55,7 @@ div{
 .menu-screen {
     display: flex;
     flex-direction: column;
-    width: 60vh;
-    height: 60vh;
+    padding: 1rem;
     border: none;
     background: var(--border);
     text-align: center;
