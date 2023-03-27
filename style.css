@@ -101,3 +101,7 @@ div{
 .menu-screen > button {
     margin-top: 10%;
 }
+
+.info-enter {
+    font-size: 1.3rem;
+}

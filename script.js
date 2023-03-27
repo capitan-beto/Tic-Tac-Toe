@@ -128,6 +128,10 @@ const menu = (() => {
         pTwoName.placeholder = "Insert player two name";
         pTwoName.classList.add("players-name");
 
+        const infoEnter = document.createElement("p");
+        infoEnter.classList.add("info-enter")
+        infoEnter.textContent = "Press enter to start";
+
         const startButton = document.createElement("button");
         startButton.textContent = "Start";
         startButton.classList.add("button");
@@ -141,7 +145,7 @@ const menu = (() => {
             }
         }, {once:true})
         
-        menuScreen.append(pOneName, pTwoName, startButton);
+        menuScreen.append(pOneName, pTwoName, infoEnter, startButton);
         
         const startGame = () => {
             if(pOneName.value == "") playerOne.name = "Player One";
