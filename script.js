@@ -13,7 +13,6 @@ let playerTwo = {
 
 const Game = () => {
     
-
     board.setAttribute("style", "display: grid");
     
     const combinations = [
@@ -28,8 +27,10 @@ const Game = () => {
     ];
     
     let count = 0;
-    
+
+
     cells.forEach(item => item.addEventListener("click", () =>{ 
+        console.log(playerOne.score, playerTwo.score);
         count ++;
         if(count % 2 == 0){
             item.textContent = "O";
@@ -82,6 +83,14 @@ const Game = () => {
 
             reset.addEventListener("click", () => {
                 window.location.reload();
+                // playerOne.score = [];
+                // playerTwo.score = [];
+                // winningScreen.setAttribute("style", "display: none");
+                // board.setAttribute("style", "display: grid");
+                // for (item of cells) {
+                //     item.textContent = "";
+                // }
+                // Game();
             })
 
             if(winner == playerOne.name || winner == playerTwo.name){
@@ -126,13 +135,17 @@ const menu = (() => {
             if(e.key == "Enter"){
                 startGame();
             }
-        })
+        }, {once:true})
         
         menuScreen.append(pOneName, pTwoName, startButton);
         
         const startGame = () => {
-            playerOne.name = pOneName.value;
-            playerTwo.name = pTwoName.value;
+            if(pOneName.value == "") playerOne.name = "Player One";
+            if(pTwoName.value == "") playerTwo.name = "Player Two";
+            else {
+                playerOne.name = pOneName.value;
+                playerTwo.name = pTwoName.value;
+            }
             Game();
             menuScreen.setAttribute("style", "display: none");
         }
