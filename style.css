@@ -13,7 +13,8 @@ body {
     align-items: center;
 
     background: #000 url(images/bg.jpg);
-    background-size: 100%;
+    background-size: 200%;
+    background-repeat: no-repeat;
 }
 
 .container{
